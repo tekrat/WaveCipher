@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>WaveCipher</title>
+	<script src="WaveCipher.js"></script>
+	<style>
+	textarea{
+		width: 100%;
+		height: 100px;
+	}
+	</style>
+	<script>
+	function generate(){
+		document.getElementById("keySet").value = WaveCipher.generate();
+	}
+	
+	function encode(){
+		document.getElementById("encodedText").value = WaveCipher.encode(
+			document.getElementById("keySet").value
+			, document.getElementById("sourceText").value
+		);
+	
+	}
+	
+	function decode(){
+		document.getElementById("decodedText").value = WaveCipher.decode(
+			document.getElementById("keySet").value
+			, document.getElementById("encodedText").value
+		);
+	}
+	
+	</script>
+</head>
+<body>
+<div><b>Key Set</b></div>
+<textarea id="keySet"></textarea>
+<div><input type="button" onclick="generate()" value="Generate Key Set" /></div>
+<div><b>Source Text</b></div>
+<textarea id="sourceText">Hello World</textarea>
+<div>
+	<input type="button" onclick="encode()" value="Encode" />
+	<input type="button" onclick="decode()" value="Decode" />
+</div>
+<div><b>Encoded Text</b></div>
+<textarea id="encodedText"></textarea>
+<div><b>Decoded Text</b></div>
+<textarea id="decodedText"></textarea>
+
+</body>
+</html>
