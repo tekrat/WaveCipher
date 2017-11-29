@@ -1,6 +1,3 @@
-# WaveCipher
-JavaScript based key set encryption
-
 WaveCipher is fairly simple encryption / decryption written in JavaScript.  This is static object. The system provides:
 
 * Create a key set / cipher
