@@ -1,4 +1,4 @@
-/*! WaveCipher v1.1.0 | Ervin Kosch | ervin.kosch@gmail.com | 
+/*! WaveCipher v1.1.1 | Ervin Kosch | ervin.kosch@gmail.com | 
   Apache License 2.0 | https://github.com/tekrat/WaveCipher/blob/master/LICENSE */
 
 var WaveCipher = {
@@ -29,12 +29,13 @@ var WaveCipher = {
 				if(gen.indexOf(l) == -1){
 					ks.push(l);
 					gen.push(l);
+				}else{
+					j = j - 1;
 				}
 			
 			}
 			
 			out["keySet"].push(ks);
-			
 		}
 
 		// Fake sets
@@ -46,6 +47,8 @@ var WaveCipher = {
 			if(gen.indexOf(l) == -1){
 				fs.push(l);
 				gen.push(l);
+			}else{
+				j = j - 1;
 			}
 		
 		}
@@ -53,7 +56,6 @@ var WaveCipher = {
 		out["keySet"].push(fs);
 		
 		return JSON.stringify(out);
-		
 	}
 	, "encode":function(k, s){
 		var cip = JSON.parse(k);
@@ -112,9 +114,7 @@ var WaveCipher = {
 				}
 			}		
 		}
-		
 		return o;
-		
 	}
 	, "generatePassword":function() {
 		
@@ -122,7 +122,6 @@ var WaveCipher = {
 		for (var i = 0, n = WaveCipher.validCharacters.length; i < WaveCipher.keyLength; ++i) {
 			retVal += WaveCipher.validCharacters.charAt(Math.floor(Math.random() * n));
 		}
-		return retVal;
-		
+		return retVal;		
 	}
 }
